@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: dcccc8686407f57f5e39caeb4c4c4d3c97563faecaadb3e371b47726a1aae8dd
+-- hash: a451a1be41c2373f2f5985a5e0fddbebf1e1f4dd8474d7c906df08548c4dba44
 
 name:           parallelism
 version:        0.1.0.0
@@ -28,13 +28,13 @@ source-repository head
 library
   exposed-modules:
       Quicksort
-      Lib
   other-modules:
       Paths_parallelism
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , parallel
   default-language: Haskell2010
 
 executable parallelism-exe
@@ -46,6 +46,7 @@ executable parallelism-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , parallel
     , parallelism
   default-language: Haskell2010
 
@@ -58,10 +59,12 @@ test-suite parallelism-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
-    , parallelism
+      QuickCheck
+    , base >=4.7 && <5
     , hspec
-    , QuickCheck
-    , hspec-expectations
     , hspec-core
+    , hspec-expectations
+    , parallel
+    , parallelism
+    , random
   default-language: Haskell2010

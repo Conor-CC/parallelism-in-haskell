@@ -1,7 +1,7 @@
 module Main where
 
-import Lib
+import Quicksort
 
 
 main :: IO ()
-main = someFunc  
+main = putStrLn "This main doesnt do too much lol\nRun \"stack test\" for more intersting output."
